@@ -24,8 +24,8 @@
     "react-native": "*"
   },
   "dependencies": {
-    "@react-navigation/core": "https://gitpkg.now.sh/yonury/arena-navigation-4.4.4/packages/core?db8757cc8b2af7b069b3fe5ac4667793a96fbd3d",
-    "@react-navigation/native": "https://gitpkg.now.sh/yonury/arena-navigation-4.4.4/packages/native?db8757cc8b2af7b069b3fe5ac4667793a96fbd3d"
+    "@react-navigation/core": "https://gitpkg.now.sh/yonury/arena-navigation-4.4.4/packages/core?6c7dcb18b84989052d95fb16bd9ae000bba8cf9d",
+    "@react-navigation/native": "https://gitpkg.now.sh/yonury/arena-navigation-4.4.4/packages/native?6c7dcb18b84989052d95fb16bd9ae000bba8cf9d"
   },
   "devDependencies": {
     "@types/react": "^16.9.53",
