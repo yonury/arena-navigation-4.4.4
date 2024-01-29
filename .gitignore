@@ -10,8 +10,8 @@ local.properties
 
 /coverage/
 /types/
-/dist/
-/lib/
+#/dist/
+#/lib/
 
 node_modules/
 web-build/
@@ -19,7 +19,7 @@ web-report/
 
 xcuserdata
 generated
-lib
+#lib
 build
 
 npm-debug.*
