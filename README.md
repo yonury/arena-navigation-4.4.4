@@ -1,52 +1,114 @@
-# React Navigation
+# React Navigation 4
 
-[![npm version](https://badge.fury.io/js/react-navigation.svg)](https://badge.fury.io/js/react-navigation) [![CircleCI badge](https://circleci.com/gh/react-navigation/react-navigation/tree/master.svg?style=shield)](https://circleci.com/gh/react-navigation/react-navigation/tree/master) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactnavigation.org/docs/contributing.html)
+[![Build Status][build-badge]][build]
+[![Code Coverage][coverage-badge]][coverage]
+[![MIT License][license-badge]][license]
 
-React Navigation is born from the React Native community's need for an extensible yet easy-to-use navigation solution based on JavaScript.
+Routing and navigation for your React Native apps.
 
-## Installation
+Documentation can be found at [reactnavigation.org](https://reactnavigation.org/docs/en/4.x/getting-started.html).
 
-See: https://reactnavigation.org/docs/en/getting-started.html
+## Contributing
 
-## Documentation
+The project uses a monorepo structure for the packages managed by [yarn workspaces](https://yarnpkg.com/lang/en/docs/workspaces/) and [lerna](https://lerna.js.org). To get started with the project, run `yarn` in the root directory to install the required dependencies for each package:
 
-* The best way to learn is to follow the [Getting started guide](https://reactnavigation.org/docs/getting-started.html). It guides you through the fundamentals of React Navigation.
-* The documentation includes solutions for common use cases in the "How do I do ...?" section, such as [tab navigation](https://reactnavigation.org/docs/tab-based-navigation.html) and [Redux integration](https://reactnavigation.org/docs/redux-integration.html).
-* If you need to build your own navigator, [there's a section for that](https://reactnavigation.org/docs/custom-navigator-overview.html) too.
-* The [API reference](https://reactnavigation.org/docs/api-reference.html) lists all public APIs.
-* The [Community Resources](https://github.com/react-navigation/react-navigation/blob/master/COMMUNITY_RESOURCES.md) document lists some other resources submitted to us by people who use React Navigation. Feel free to open a pull request to add your resource to the list.
-* You can contribute improvements to the documentation [in the website repository](https://github.com/react-navigation/react-navigation.github.io).
+```sh
+yarn
+```
 
-## Changelog
+While developing, you can run the [example app](/example/) with [Expo](https://expo.io/) to test your changes:
 
-The changes for each release are outlined on [the GitHub releases page](https://github.com/react-navigation/react-navigation/releases).
+```sh
+yarn example start
+```
 
-## Try it out
+Make sure your code passes TypeScript and ESLint. Run the following to verify:
 
-You can also try out the [Navigation Playground app](https://exp.host/@react-navigation/NavigationPlayground) to get a sense for some of the tools built in to React Navigation. The "Fundamentals" in the documentation also include examples you can play with.
+```sh
+yarn typescript
+yarn lint
+```
 
-## FAQs
+To fix formatting errors, run the following:
 
-#### I'm having troubles using the library, what can I do?
+```sh
+yarn lint --fix
+```
 
-See [the help page](https://reactnavigation.org/en/help.html).
+Remember to add tests for your change if possible. Run the unit tests by:
 
-#### How can I help?
+```sh
+yarn test
+```
 
-See our [Contributing Guide](CONTRIBUTING.md)!
+Running the e2e tests with Detox (on iOS) requires the following:
 
-#### Is this the only library available for navigation?
+- Mac with macOS (at least macOS High Sierra 10.13.6)
+- Xcode 10.1+ with Xcode command line tools
 
-Certainly not! There are other libraries - which, depending on your needs, can be better or worse suited for your project. Read more in the [alternative libraries](https://reactnavigation.org/docs/alternatives.html) documentation, and read React Navigation's [pitch & anti-pitch](https://reactnavigation.org/docs/pitch.html) to understand the tradeoffs.
+First you need to install `applesimutils` and `detox-cli`:
 
-#### Can I use this library for web?
+```sh
+brew tap wix/brew
+brew install applesimutils
+yarn global add detox-cli
+```
 
-Web support was [not a priority for the 1.0 release](https://github.com/react-community/react-navigation/issues/2585#issuecomment-330338793), but the architecture of this library allows for it (and it has worked in the past). If you would like to lead this charge, please reach out with your ideas for how to move forward on the [RFCs repository](https://github.com/react-navigation/rfcs) and we would be happy to discuss.
+Then you can build and run the tests:
 
-## Code of conduct
+```sh
+detox build -c ios.sim.debug
+detox test -c ios.sim.debug
+```
 
-This library has adopted a Code of Conduct that we expect project participants to adhere to. Please read the [full text](https://github.com/react-community/react-navigation/blob/master/CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
+## Publishing
 
-## License
+To publish a new version, first we need to export a `GH_TOKEN` environment variable as mentioned [here](https://github.com/lerna/lerna/tree/4.x/commands/version#--create-release-type). Then run:
 
-React Navigation is licensed under the [MIT](https://github.com/react-community/react-navigation/blob/master/LICENSE).
+```sh
+yarn lerna publish
+```
+
+This will automatically bump the version and publish the packages. It'll also publish the changelogs on GitHub for each package.
+
+## Installing from a fork on GitHub
+
+Since we use a monorepo, it's not possible to install a package from the repository URL. If you need to install a forked version from Git, you can use [`gitpkg`](https://github.com/ramasilveyra/gitpkg).
+
+First install `gitpkg`:
+
+```sh
+yarn global add gitpkg
+```
+
+Then follow these steps to publish and install a forked package:
+
+1. Fork this repo to your account and clone the forked repo to your local machine
+1. Open a Terminal and `cd` to the location of the cloned repo
+1. Run `yarn` to install any dependencies
+1. If you want to make any changes, make them and commit
+1. Now `cd` to the package directory that you want to use (e.g. `cd packages/stack` for `@react-navigation/stack`)
+1. Run `gitpkg publish` to publish the package to your repo
+
+After publishing, you should see something like this:
+
+```sh
+Package uploaded to git@github.com:<user>/<repo>.git with the name <name>
+```
+
+You can now install the dependency in your project:
+
+```sh
+yarn add <user>/<repo>.git#<name>
+```
+
+Remember to replace `<user>`, `<repo>` and `<name>` with right values.
+
+<!-- badges -->
+
+[build-badge]: https://img.shields.io/circleci/project/github/react-navigation/react-navigation/4.x.svg?style=flat-square
+[build]: https://circleci.com/gh/react-navigation/react-navigation
+[coverage-badge]: https://img.shields.io/codecov/c/github/react-navigation/react-navigation.svg?style=flat-square
+[coverage]: https://codecov.io/github/react-navigation/react-navigation
+[license-badge]: https://img.shields.io/npm/l/@react-navigation/core.svg?style=flat-square
+[license]: https://opensource.org/licenses/MIT
