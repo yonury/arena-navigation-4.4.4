@@ -24,8 +24,8 @@
     "react-native": "*"
   },
   "dependencies": {
-    "@react-navigation/core": "^3.7.9",
-    "@react-navigation/native": "^3.8.4"
+    "@react-navigation/core": "https://gitpkg.now.sh/yonury/arena-navigation-4.4.4/packages/core?db8757cc8b2af7b069b3fe5ac4667793a96fbd3d",
+    "@react-navigation/native": "https://gitpkg.now.sh/yonury/arena-navigation-4.4.4/packages/native?db8757cc8b2af7b069b3fe5ac4667793a96fbd3d"
   },
   "devDependencies": {
     "@types/react": "^16.9.53",
