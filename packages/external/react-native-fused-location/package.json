@@ -1,0 +1,45 @@
+{
+  "name": "react-native-fused-location",
+  "version": "1.1.2",
+  "description": "A react native module for android which gets the finest location from fused API. Gets location with or without GPS.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "start": "tsc -w",
+    "build": "tsc",
+    "prepublish": "npm run build --scripts-prepend-node-path",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MustansirZia/react-native-fused-location"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "location",
+    "gps",
+    "fused",
+    "android",
+    "play-services",
+    "npm",
+    "native"
+  ],
+  "author": "Mustansir Zia <mustansir29@hotmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=15.4.0",
+    "react-native": ">=0.40.0"
+  },
+  "nativePackage": true,
+  "devDependencies": {
+    "@types/react-native": "^0.60.24",
+    "@typescript-eslint/eslint-plugin": "^2.10.0",
+    "@typescript-eslint/parser": "^2.10.0",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.3"
+  }
+}
